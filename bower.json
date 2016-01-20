@@ -1,0 +1,22 @@
+{
+  "name": "01.11-16",
+  "description": "En demo för gulp",
+  "main": "index.js",
+  "authors": [
+    "Kenneth Celsner Rahm"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "gulp"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

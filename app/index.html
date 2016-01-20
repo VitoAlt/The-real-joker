@@ -1,0 +1,123 @@
+<!doctype html> 
+<html ng-app="myApp" class="no-js" lang="en">
+  <head> 
+    <meta charset="utf-8" />         
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+    <title>The Joker</title>    
+    <link rel="stylesheet" href="css/foundation.css" />    
+    <link rel="stylesheet" href="foundation-icons/foundation-icons.css" />
+    <link rel="stylesheet" href="css/stylesheet.css" />
+    <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+  </head>  
+  <body ng-controller="MyController"> 
+    
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+      </section>
+
+      <section class="middle tab-bar-section">
+        <h1 class="title">Foundation</h1>
+      </section>
+
+      <section class="right-small">
+        <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+      </section>
+    </nav>
+
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Foundation</label></li>
+        <li><a href="#">The Psychohistorians</a></li>
+        <li><a href="#">...</a></li>
+      </ul>
+    </aside>
+
+    <aside class="right-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Users</label></li>
+        <li><a href="#">Hari Seldon</a></li>
+        <li><a href="#">...</a></li>
+      </ul>
+    </aside>
+ 
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>The Joker</label></li>
+        <li><a href="#">Topp 10</a></li>
+        <li><a href="#">Lägg till</a></li>
+        <li><a href="#">Logga in</a></li>
+        <li><a href="#">Registrera</a></li>
+      </ul>
+    </aside> 
+
+<section class="main-section">  
+<!-- CHAT MARKUP -->
+    <div class="example-chat l-demo-container">
+      
+
+      <ul id="example-messages" class="example-chat-messages">
+        <li ng-repeat="msg in messages">
+          <strong class="example-chat-username">{{ msg.from }}</strong>
+          {{ msg.body }}
+        </li>
+      </ul>
+        
+
+
+</section>
+      <footer>
+
+        <label for="nameInput">Username:</label>
+        <input ng-model="name" type="text" id="nameInput" placeholder="enter a username...">
+      
+        <input ng-model="msg" ng-keydown="addMessage($event)" type="text" id="messageInput"  placeholder="Type a message...">
+      </footer>
+    </div>
+
+     <a class="exit-off-canvas"></a>
+
+  </div>
+</div>
+
+
+    <script>
+      var myApp = angular.module("myApp", ["firebase"]);
+
+      myApp.controller("MyController", ["$scope", "$firebaseArray",
+        function($scope, $firebaseArray) {
+          var ref = new Firebase("https://joker-app.firebaseio.com/");
+          $scope.messages = $firebaseArray(ref);
+
+          //ADD MESSAGE METHOD
+          $scope.addMessage = function(e) {
+
+            //LISTEN FOR RETURN KEY
+            if (e.keyCode === 13 && $scope.msg) {
+              //ALLOW CUSTOM OR ANONYMOUS USER NAMES
+              var name = $scope.name || "anonymous";
+          $scope.messages.$add({ from: name, body: $scope.msg });
+              //RESET MESSAGE
+              $scope.msg = "";
+            }
+          }
+        }
+      ]);
+    </script>
+    <script src="js/resize_vid.js"></script>   
+    <script src="scripts/firebase.js"></script>
+    <script src="scripts/firebase.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
