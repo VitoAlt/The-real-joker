@@ -2,10 +2,10 @@
 
 When you've cloned this repository, open the cmd in the map and write following:
 
-npm install
-npm install gulp -g
-npm install gulp --save-dev
-npm install browser-sync gulp --save-dev
+* npm install
+* npm install gulp -g
+* npm install gulp --save-dev
+* npm install browser-sync gulp --save-dev
 
 
 
