@@ -14,8 +14,11 @@
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
   </head>  
+    <style> .grid-content { margin: 10px 10px 0 10px;}
+    .main-section { max-width: 1024px; margin: 0 auto;} </style>
   <body ng-controller="MyController"> 
-    
+ 
+<!--<div class="grid-frame">-->
 <div class="off-canvas-wrap" data-offcanvas>
   <div class="inner-wrap">
     <nav class="tab-bar">
@@ -24,7 +27,7 @@
       </section>
 
       <section class="middle tab-bar-section">
-<!--        <h1 class="title">Foundation</h1>-->
+          <!--<h1 class="title">THE JOKER</h1>-->
             <div id="video-viewport">  
                 <video autoplay preload class="vid_properties" width="320" height="50" id='video_r'>
                     <source src="img/TheJoker-MV_Banner_v5.mp4"type="video/mp4" /> 
@@ -64,35 +67,41 @@
       </ul>
     </aside> 
 
-<section class="main-section">  
-<!-- CHAT MARKUP -->
-    <div class="example-chat l-demo-container">
-      
-
-      <ul id="example-messages" class="example-chat-messages">
-        <li ng-repeat="msg in messages">
-          <strong class="example-chat-username">{{ msg.from }}</strong>
-          {{ msg.body }}
-        </li>
-      </ul>
+    <section class="main-section">  
+        <div class="medium-10 grid-block">
+        <h3 class="text-center">Topp 10</h3>
+        <div class="grid-content">
+          <hr />
+          <h4><img src="http://placehold.it/30x30"> Spike</h4>
+          <p>Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.</p>
+          <hr />
+          <h4><img src="http://placehold.it/30x30"> Cesar</h4>
+          <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
+          <hr />
+          <h4><img src="http://placehold.it/30x30"> Bruce</h4>
+          <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
+          <hr />
+          <h4><img src="http://placehold.it/30x30"> Molly</h4>
+          <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
+          <hr />
+          <h4><img src="http://placehold.it/30x30"> Dexter</h4>
+          <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
+          <hr />
+          <h4><img src="http://placehold.it/30x30"> Felix</h4>
+          <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
+          <hr />
+          <h4><img src="http://placehold.it/30x30"> Mario</h4>
+          <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
+          <hr />
+          <h4><img src="http://placehold.it/30x30"> Peach</h4>
+          <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
+          <hr />
+        </div> <!-- grid content --> 
+      </div> <!-- grid block --> 
         
-
-
-</section>
-      <footer>
-
-        <label for="nameInput">Username:</label>
-        <input ng-model="name" type="text" id="nameInput" placeholder="enter a username...">
-      
-        <input ng-model="msg" ng-keydown="addMessage($event)" type="text" id="messageInput"  placeholder="Type a message...">
-      </footer>
-    </div>
-
-     <a class="exit-off-canvas"></a>
-
-  </div>
-</div>
-
+    </div> <!-- end -inner-wrap --> 
+    <a class="exit-off-canvas"></a>
+</div> <!-- end - off-canvas-wrap -->
 
     <script>
       var myApp = angular.module("myApp", ["firebase"]);
