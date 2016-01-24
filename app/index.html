@@ -15,45 +15,24 @@
     <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
   </head>  
   <body ng-controller="MyController"> 
-    
+<!-- Left header -->
 <div class="off-canvas-wrap" data-offcanvas>
   <div class="inner-wrap">
     <nav class="tab-bar">
       <section class="left-small">
         <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
       </section>
-
+      <!-- Middle header -->
       <section class="middle tab-bar-section">
-<!--        <h1 class="title">Foundation</h1>-->
-            <div id="video-viewport">  
-                <video autoplay preload class="vid_properties" width="320" height="50" id='video_r'>
-                    <source src="img/TheJoker-MV_Banner_v5.mp4"type="video/mp4" /> 
-                </video>   
-            </div>         
-          
-      </section>
-
-      <section class="right-small">
-        <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
-      </section>
+        <div id="video-viewport">  
+          <video autoplay preload class="vid_properties" width="320" height="50" id='video_r'>
+              <source src="img/TheJoker-MV_Banner_v5.mp4"type="video/mp4" /> 
+          </video>   
+        </div>         
+      </section>    
     </nav>
-
-    <aside class="left-off-canvas-menu">
-      <ul class="off-canvas-list">
-        <li><label>Foundation</label></li>
-        <li><a href="#">The Psychohistorians</a></li>
-        <li><a href="#">...</a></li>
-      </ul>
-    </aside>
-
-    <aside class="right-off-canvas-menu">
-      <ul class="off-canvas-list">
-        <li><label>Users</label></li>
-        <li><a href="#">Hari Seldon</a></li>
-        <li><a href="#">...</a></li>
-      </ul>
-    </aside>
  
+    <!-- Aside left header -->
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
         <li><label>The Joker</label></li>
@@ -64,32 +43,51 @@
       </ul>
     </aside> 
 
-<section class="main-section">  
-<!-- CHAT MARKUP -->
-    <div class="example-chat l-demo-container">
-      
+    <section class="main-section"> 
+      <div class="row panel">
 
-      <ul id="example-messages" class="example-chat-messages">
-        <li ng-repeat="msg in messages">
-          <strong class="example-chat-username">{{ msg.from }}</strong>
-          {{ msg.body }}
-        </li>
-      </ul>
-        
+        <div class="row">
+          <div class="columns small-12">
+            <ul class="list-jokes">
+              <div class="row">
+                <div class="column small-12">
+                  <li ng-repeat="joke in jokes" class="joke-section">
+                    <div class="column small-8">
+                    <p class="joke">{{ joke.body }}</p>
+                    <strong class="username">{{ joke.from }}</strong>
+                    </div>
+                    <div class="column small-4 vote">
+                      <p><a href="">Upvote</a></p>
+                      <p>Score</p>
+                      <p><a href="">Downvote</a></p>
+                    </div>
+                  </li>
+                </div>
+              </div>
+            </ul>
+          </div>
+        </div>
 
 
-</section>
-      <footer>
 
-        <label for="nameInput">Username:</label>
-        <input ng-model="name" type="text" id="nameInput" placeholder="enter a username...">
-      
-        <input ng-model="msg" ng-keydown="addMessage($event)" type="text" id="messageInput"  placeholder="Type a message...">
-      </footer>
+    </section>
+        <footer>
+          <div class="row">
+          <div class="column small-12 footer-input">
+            <input ng-model="name" type="text" id="nameInput" placeholder="Enter a username...">
+          </div>
+          <div class="column small-12 footer-input">
+            <textarea rows="4" cols="50" ng-model="joke" ng-keydown="addJoke($event)" id="jokeInput" placeholder="Write your joke here...">
+
+            </textarea>
+            <!--input ng-model="joke" ng-keydown="addJoke($event)" type="text" id="jokeInput"  placeholder="Write your joke here..."-->
+          </div>
+          </div>
+        </footer>
+      </div>
+    
+    <a class="exit-off-canvas"></a>
     </div>
-
-     <a class="exit-off-canvas"></a>
-
   </div>
 </div>
 
@@ -100,18 +98,18 @@
       myApp.controller("MyController", ["$scope", "$firebaseArray",
         function($scope, $firebaseArray) {
           var ref = new Firebase("https://joker-app.firebaseio.com/");
-          $scope.messages = $firebaseArray(ref);
+          $scope.jokes = $firebaseArray(ref);
 
           //ADD MESSAGE METHOD
-          $scope.addMessage = function(e) {
+          $scope.addJoke = function(e) {
 
             //LISTEN FOR RETURN KEY
-            if (e.keyCode === 13 && $scope.msg) {
+            if (e.keyCode === 13 && $scope.joke) {
               //ALLOW CUSTOM OR ANONYMOUS USER NAMES
               var name = $scope.name || "anonymous";
-          $scope.messages.$add({ from: name, body: $scope.msg });
+          $scope.jokes.$add({ from: name, body: $scope.joke });
               //RESET MESSAGE
-              $scope.msg = "";
+              $scope.joke = "";
             }
           }
         }
