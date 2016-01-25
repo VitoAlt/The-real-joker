@@ -1,1 +1,0 @@
-for(var i=0;10>i;i++)console.log(i);for(var j=10;j>0;j--)console.log(j);

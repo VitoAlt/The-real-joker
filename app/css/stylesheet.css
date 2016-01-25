@@ -1,15 +1,62 @@
+body {
+    background: #eff2f5;
+}
+
 .row {
-	max-width: 100%;
+	max-width: 1050px;
 }
 
 .tab-bar {
 	height: 45px;
     width: 100%;
     position: fixed;
+    z-index: 5;
 }
 
 .main-section {
-	padding-top: 50px;
+	padding-top: 40px;
+    padding-bottom: 130px;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background: #3e3e3e;
+    padding: 10px;
+}
+
+.list-jokes {
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
+.panel {
+    padding: 0;
+}
+
+.joke-section {
+    overflow: hidden;
+    background: green;
+    margin-bottom: 1px;
+    padding: 15px;
+}
+
+.joke {
+    margin: 0;
+}
+
+.vote {
+    padding: 10px;
+    text-align: center;
+}
+
+#jokeInput {
+    margin: 0;
+}
+
+.footer-input {
+    padding: 0;
 }
 
 
